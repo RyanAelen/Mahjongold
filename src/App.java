@@ -71,6 +71,26 @@ public class App extends PApplet {
         println("active player index: " + activePlayer.getPlayerWind().index());
     }
 
+    public void rotateWinds() {
+        EWinds tempwind = seats[3].getPlayerWind();
+        seats[3].getWindFromOtherSeat(seats[2].getPlayerWind());
+        seats[2].getWindFromOtherSeat(seats[1].getPlayerWind());
+        seats[1].getWindFromOtherSeat(seats[0].getPlayerWind());
+        seats[0].getWindFromOtherSeat(tempwind);
+        println("====");
+        for (Seat seat : seats) {
+            print(seat.getTablePostion());
+            print(" ");
+            print(seat.getPlayerName() + " ");
+            print(seat.getPlayerWind().toString());
+            if (seat.getPlayerWind() == windOfRound) {
+                print(" dealer");
+            }
+            println();
+        }
+        println("<<<<");
+    }
+
     @Override
     public void mouseClicked() {
         Piece.shuffelPeaces(stukken);
