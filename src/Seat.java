@@ -8,6 +8,7 @@ public class Seat {
     public Seat(String name, EWinds wind) {
         this.name = name;
         this.playersWind = wind;
+        this.tablePostion = getPlayerIndex();
         System.out.println(this.name);
     }
 
