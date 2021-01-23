@@ -26,4 +26,9 @@ public class Seat {
     public String getPlayerName() {
         return name;
     }
+
+    public EWinds getWindFromOtherSeat(EWinds wind) {
+        this.playersWind = wind;
+        return this.playersWind;
+    }
 }
